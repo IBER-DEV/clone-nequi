@@ -10,6 +10,7 @@ import StepsCredit from "@/components/creditSteps"
 import SimularCredit from "@/components/simular-credit"
 import HelpSection from "@/components/help-section"
 import Requirements from "@/components/requirements-section"
+import Duda from "@/components/duda-section"
 import Footer from "@/components/footer"
 
 export default function Home() {
@@ -105,6 +106,9 @@ export default function Home() {
 
       {/* Requirements */}
       <Requirements />
+
+      {/* Duda Section */}
+      <Duda />
 
       {/* Footer */}
       <Footer />
