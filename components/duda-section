@@ -1,0 +1,83 @@
+import { ArrowRight, HelpCircle, MessageCircle } from "lucide-react"
+import Link from "next/link"    
+import React from "react";
+import Image from 'next/image';
+
+interface FAQCardProps {
+question: string
+href: string
+}
+
+function FAQCard({ question, href }: FAQCardProps) {
+return (
+    <Link
+    href={href}
+    className="flex items-center justify-between p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
+    <h3 className="text-lg text-gray-900">{question}</h3>
+    <ArrowRight className="w-5 h-5 text-gray-500" />
+    </Link>
+)
+}
+
+export default function FAQSection() {
+return (
+    <section className="px-4 py-16 bg-[#FBE5F2]">
+    <div className="max-w-6xl mx-auto space-y-12">
+        {/* Header */}
+        <div className="space-y-4 text-center sm:text-left">
+        <h2 className="text-4xl font-bold text-gray-900">¿Tienes preguntas?</h2>
+        <p className="text-xl text-gray-600">Resuélvelas en segundos y saca todo el provecho de tu Nequi</p>
+        </div>
+
+        {/* FAQ Cards */}
+        <div className="grid gap-4 md:grid-cols-3">
+        <FAQCard question="Todo lo que debes saber del préstamo Propulsor" href="/faq/prestamo-propulsor" />
+        <FAQCard question="¿Qué pasas si pagas antes tu Propulsor?" href="/faq/pago-anticipado" />
+        <FAQCard question="¿Se puede pedir más de un préstamo Propulsor?" href="/faq/multiples-prestamos" />
+        </div>
+
+        {/* Help Links */}
+        <div className="grid gap-8 pt-8 md:grid-cols-2">
+        <div className="flex items-start gap-4 mx-auto">
+            <div className="p-2 -mt-8">
+            <img
+            src="img/dudas.svg"
+            alt="Dudas"
+            width={24}
+            className="w-20 h-20 " />
+            </div>
+            <div className="flex flex-col items-start pt-1 w-full">
+            <p className="text-gray-900">¿Más dudas? ¡Resuélvelas todas en el Centro de Ayuda!</p>
+            <div className="pl-2 ml-[-4.5rem]">
+                <Link
+                href="/centro-ayuda"
+                className="inline-block mt-9 ml-[-1.5rem] px-6 py-2 bg-pink-600 text-white rounded-lg hover:bg-pink-700 transition-colors"
+                >
+                Ir al Centro de ayuda
+                </Link>
+            </div>
+            </div>
+        </div>
+
+        <div className="flex items-start gap-4">
+            <div className="p-2 -mt-8">
+            <img
+            src="img/COMUNIDAD.svg"
+            alt="Comunidad"
+            width={24}
+            className="w-20 h-20" />
+            </div>
+            <div className="flex flex-col items-start pt-1 w-full">
+            <p className="text-gray-900">
+                Si prefieres preguntar en el foro,{" "}
+                <Link href="/comunidad" className="text-pink-600 hover:underline">
+                visita la comunidad
+                </Link>
+            </p>
+            </div>
+        </div>
+        </div>
+    </div>
+    </section>
+)
+}
